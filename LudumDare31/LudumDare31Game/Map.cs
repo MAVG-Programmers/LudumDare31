@@ -32,7 +32,7 @@ namespace LudumDare31Game
 
         public void Draw(Game g, int deltatime) 
         {
-            Tiles.Draw(Game g, int deltatime);
+            Tiles.Draw(g, deltatime);
         }
     }
 }
