@@ -13,9 +13,9 @@ namespace LudumDare31Game
         private InputManager input;
         private int playerSpeed = 10;
 
-        public void Load(InputManager inputManager)
+        public void Load()
         {
-            input = inputManager;
+            //input = inputManager;
         }
 
         public void Update(Game g, int deltaTime)
