@@ -1,6 +1,7 @@
 ﻿using SFML.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace LudumDare31Game
 {
     public class Map
     {
-        public Tile[][] Tiles { get; set; }
+        public Tilemap Tiles { get; set; }
         public List<Entity> Entities { get; set; }
         public WorldSetting WorldSetting { get; set; }
             
@@ -19,27 +20,31 @@ namespace LudumDare31Game
             //foreach tile do:
             //tiletype = Mapfile.LoadTile(xPos, yPos)
             //tile.Sprites = Mapfile.DeserializeSpriteDictionary(tiletype)
+
+            this.Tiles = Tilemap.FromFile("test.map");
         }
+
         public void Update(Game g, int deltatime)
         {
 
         }
-        public void Draw(Game g, int deltatime)
-        {
 
-        }
-        public void LoadMapfile(string filepath) 
-        {
-            string[] lines = File.ReadAllLines(filepath);
 
-            for (int y = 0; y < lines.Length; y++) 
+
+        #region "Debugging"
+        public void DebugDraw(Game g)
+        {
+            Console.Clear();
+
+            for (int y = 0; y < Tiles.VerticalSize-1; y++) 
             {
-                string[] cols = lines[y].Split(',');
-                for (int x = 0; x < cols.Length; x++) 
+                for (int x = 0; x < Tiles.HorizontalSize-1; x++) 
                 {
-                    Tiles[x][y] = Tile.FromInt(int.Parse(cols[x]));
+                    Tiles.Tiles[x, y].DebugDraw(g);
                 }
+                Console.WriteLine();
             }
         }
+        #endregion
     }
 }

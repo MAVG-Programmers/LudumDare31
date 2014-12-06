@@ -47,5 +47,24 @@ namespace LudumDare31Game
                     return new Tile(TileType.Empty);
             }
         }
+
+        public void DebugDraw(Game g)
+        {
+            switch (this.tileType)
+            {
+                case TileType.Empty:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write("0");
+                    break;
+                case TileType.Surface:
+                   Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.Write("1");
+                    break;
+                case TileType.Underground:
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.Write("2");
+                    break;
+            }
+        }
     }
 }

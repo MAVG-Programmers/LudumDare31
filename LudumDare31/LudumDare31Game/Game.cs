@@ -18,11 +18,16 @@ namespace LudumDare31Game
 
         public void Run() 
         {
-            RenderForm = new RenderWindow(new VideoMode(800, 600), "Ludum Dare 31");
+            RenderForm = new RenderWindow(new VideoMode(800, 600), "Notaripoff - The Game");
 
             RenderForm.Closed += RenderForm_Closed;
 
-            while (RenderForm.IsOpen()) 
+            Gamemap = new Map();
+            Gamemap.Load();
+
+            Gamemap.DebugDraw(this);
+
+            while (RenderForm.IsOpen())
             {
                 RenderForm.Clear(Color.Magenta);
 
@@ -55,7 +60,7 @@ namespace LudumDare31Game
 
         public void Draw(int deltatime) 
         {
-            
+            //Gamemap.Draw(this, deltatime);
         }
 
         public void Pause() 
