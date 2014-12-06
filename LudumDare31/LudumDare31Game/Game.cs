@@ -15,6 +15,7 @@ namespace LudumDare31Game
 
         public RenderWindow RenderForm { get; set; }
         public Map Gamemap { get; set; }
+        public Stack<GameState> Gamestates { get; set; }
 
         public void Run() 
         {
@@ -50,11 +51,12 @@ namespace LudumDare31Game
         }
         public void Update(int deltatime)
         {
-            
+            Gamestates.Peek().Update(this, deltatime);
         }
+
         public void Draw(int deltatime) 
         {
-        
+            Gamestates.Peek().Draw(this, deltatime);
         }
 
         public void Dispose()
