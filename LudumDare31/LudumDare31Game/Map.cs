@@ -22,6 +22,7 @@ namespace LudumDare31Game
             //tile.Sprites = Mapfile.DeserializeSpriteDictionary(tiletype)
 
             this.Tiles = Tilemap.FromFile("test.map");
+            this.Entities = new List<Entity>();
         }
 
         public void Update(Game g, int deltatime)
@@ -29,22 +30,9 @@ namespace LudumDare31Game
 
         }
 
-
-
-        #region "Debugging"
-        public void DebugDraw(Game g)
+        public void Draw(Game g, int deltatime) 
         {
-            Console.Clear();
-
-            for (int y = 0; y < Tiles.VerticalSize-1; y++) 
-            {
-                for (int x = 0; x < Tiles.HorizontalSize-1; x++) 
-                {
-                    Tiles.Tiles[x, y].DebugDraw(g);
-                }
-                Console.WriteLine();
-            }
+            Tiles.Draw(Game g, int deltatime);
         }
-        #endregion
     }
 }

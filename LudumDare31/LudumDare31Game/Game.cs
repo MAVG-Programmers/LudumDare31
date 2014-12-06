@@ -25,7 +25,7 @@ namespace LudumDare31Game
             Gamemap = new Map();
             Gamemap.Load();
 
-            Gamemap.DebugDraw(this);
+            //Gamemap.DebugDraw(this);
 
             while (RenderForm.IsOpen())
             {

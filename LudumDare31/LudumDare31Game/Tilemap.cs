@@ -19,7 +19,11 @@ namespace LudumDare31Game
             VerticalSize = ySize;
         }
         
-
+        /// <summary>
+        /// Generates a Tilemap datastructure from a textfile
+        /// </summary>
+        /// <param name="filepath">the mapfile</param>
+        /// <returns>The generated tilemap</returns>
         public static Tilemap FromFile(string filepath)
         {
             string[] lines = File.ReadAllLines(filepath);
@@ -36,7 +40,7 @@ namespace LudumDare31Game
 
             Tilemap tm = new Tilemap(xSize, ySize);
 
-            for (int y = 2; y < lines.Length-2; y++)
+            for (int y = 2; y < lines.Length; y++)
             {
                 string[] cells = lines[y].Split(',');
 
@@ -47,6 +51,26 @@ namespace LudumDare31Game
             }
 
             return tm;
+        }
+
+        public void Draw(Game g, int deltatime) 
+        {
+            
+        }
+
+
+        public void DebugDraw(Game g)
+        {
+            Console.Clear();
+
+            for (int y = 0; y < Tiles.VerticalSize; y++)
+            {
+                for (int x = 0; x < Tiles.HorizontalSize; x++)
+                {
+                    Tiles.Tiles[x, y].DebugDraw(g);
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
