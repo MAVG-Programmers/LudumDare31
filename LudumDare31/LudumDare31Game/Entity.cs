@@ -6,11 +6,9 @@ using System.Text;
 
 namespace LudumDare31Game
 {
-    public class Entity
+    public abstract class Entity
     {
-        public Dictionary<WorldSetting, Image> Sprites { get; set; }
-
-        public void Load()
+       public void Load()
         {
 
         }
@@ -20,7 +18,7 @@ namespace LudumDare31Game
         }
         public void Draw(Game g, int deltatime)
         {
-
+            
         }
     }
 }

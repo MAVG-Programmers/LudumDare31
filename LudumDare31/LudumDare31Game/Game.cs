@@ -14,6 +14,7 @@ namespace LudumDare31Game
         private Stopwatch sw = new Stopwatch();
 
         public RenderWindow RenderForm { get; set; }
+        public Map Gamemap { get; set; }
 
         public void Run() 
         {

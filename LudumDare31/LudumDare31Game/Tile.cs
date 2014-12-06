@@ -8,7 +8,8 @@ namespace LudumDare31Game
 {
     public class Tile
     {
-        public Dictionary<WorldSetting, Image> Sprites { get; set; }
+        public DrawablePart Sprite { get; set; }
+        public TileType Tiletype { get; set; }
 
         public void Load() 
         {
@@ -16,11 +17,11 @@ namespace LudumDare31Game
         }
         public void Update(Game g, int deltatime)
         {
-
+            
         }
         public void Draw(Game g, int deltatime)
         {
-
+            Sprite.Draw(g, deltatime, this.Tiletype);
         }
     }
 }
