@@ -6,19 +6,10 @@ using System.Text;
 
 namespace LudumDare31Game
 {
-    public abstract class Entity
+    public interface Entity
     {
-       public void Load()
-        {
-
-        }
-        public void Update(Game g, int deltatime)
-        {
-
-        }
-        public void Draw(Game g, int deltatime)
-        {
-            
-        }
+        public void Load();
+        public void Update(Game g, int deltatime);
+        public void Draw(Game g, int deltatime);
     }
 }
