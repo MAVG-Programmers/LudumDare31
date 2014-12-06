@@ -10,7 +10,10 @@ namespace LudumDare31Game
     {
         static void Main(string[] args)
         {
-
+            using(Game g = new Game()) 
+            {
+                g.Run();
+            }
         }
     }
 }
