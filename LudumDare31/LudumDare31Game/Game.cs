@@ -27,7 +27,11 @@ namespace LudumDare31Game
 
                 RenderForm.DispatchEvents();
 
-                //Write gamelogic here
+                int deltatime = (int) sw.ElapsedMilliseconds;
+                sw.Restart();
+
+                Update(deltatime);
+                Draw(deltatime);
 
                 RenderForm.Display();
             }
