@@ -16,6 +16,8 @@ namespace LudumDare31Game
         public RenderWindow RenderForm { get; set; }
         public Map Gamemap { get; set; }
 
+        private InputManager inputManager;
+
         public void Run() 
         {
             RenderForm = new RenderWindow(new VideoMode(800, 600), "Notaripoff - The Game");
@@ -55,7 +57,7 @@ namespace LudumDare31Game
         }
         public void Update(int deltatime)
         {
-            
+            inputManager.Update();
         }
 
         public void Draw(int deltatime) 
