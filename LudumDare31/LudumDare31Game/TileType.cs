@@ -8,6 +8,7 @@ namespace LudumDare31Game
     public enum TileType
     {
         Surface,
-        Underground
+        Underground,
+        Empty
     }
 }

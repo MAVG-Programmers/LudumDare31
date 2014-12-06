@@ -18,7 +18,7 @@ namespace LudumDare31Game
 
         public void Run() 
         {
-            RenderForm = new RenderWindow(new VideoMode(200, 200), "gamename");
+            RenderForm = new RenderWindow(new VideoMode(800, 600), "Ludum Dare 31");
 
             RenderForm.Closed += RenderForm_Closed;
 

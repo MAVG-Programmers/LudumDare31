@@ -28,9 +28,18 @@ namespace LudumDare31Game
         {
 
         }
-        public Map FromFile(string filepath) 
+        public void LoadMapfile(string filepath) 
         {
-            string[] files = File.ReadAllLines(filepath);
+            string[] lines = File.ReadAllLines(filepath);
+
+            for (int y = 0; y < lines.Length; y++) 
+            {
+                string[] cols = lines[y].Split(',');
+                for (int x = 0; x < cols.Length; x++) 
+                {
+                    Tiles[x][y] = Tile.FromInt(int.Parse(cols[x]));
+                }
+            }
         }
     }
 }

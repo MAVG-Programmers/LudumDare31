@@ -8,8 +8,8 @@ namespace LudumDare31Game
 {
     public interface Entity
     {
-        public void Load();
-        public void Update(Game g, int deltatime);
-        public void Draw(Game g, int deltatime);
+        void Load();
+        void Update(Game g, int deltatime);
+        void Draw(Game g, int deltatime);
     }
 }
