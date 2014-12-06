@@ -1,6 +1,7 @@
 ﻿using SFML.Graphics;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,9 @@ namespace LudumDare31Game
         {
 
         }
-
+        public Map FromFile(string filepath) 
+        {
+            string[] files = File.ReadAllLines(filepath);
+        }
     }
 }
