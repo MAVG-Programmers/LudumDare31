@@ -18,7 +18,7 @@ namespace LudumDare31Game
         public bool IsPaused {get;set;}
         public Gamestate Gamestate { get; set; }
 
-        private InputManager inputManager;
+        public InputManager inputManager { get; set; }
 
         public void Run() 
         {
@@ -28,6 +28,8 @@ namespace LudumDare31Game
 
             Gamemap = new Map();
             Gamemap.Load();
+
+            inputManager = new InputManager(this);
 
             //Gamemap.DebugDraw(this);
 
