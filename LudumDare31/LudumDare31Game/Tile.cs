@@ -21,7 +21,7 @@ namespace LudumDare31Game
 
             // ContentLoader.LoadDrawable(tiletype)
             this.Tiletype = tileType;
-            Sprite = new Image("../../../Maps/testmap/Normal/" + Tiletype.ToString());
+            //Sprite = new Image("../../../Maps/testmap/Normal/" + Tiletype.ToString());
         }
 
 
