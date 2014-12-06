@@ -63,11 +63,11 @@ namespace LudumDare31Game
         {
             Console.Clear();
 
-            for (int y = 0; y < Tiles.VerticalSize; y++)
+            for (int y = 0; y < VerticalSize; y++)
             {
-                for (int x = 0; x < Tiles.HorizontalSize; x++)
+                for (int x = 0; x < HorizontalSize; x++)
                 {
-                    Tiles.Tiles[x, y].DebugDraw(g);
+                    Tiles[x, y].DebugDraw(g);
                 }
                 Console.WriteLine();
             }
