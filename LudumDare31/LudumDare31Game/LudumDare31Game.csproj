@@ -53,8 +53,6 @@
     <Compile Include="DrawablePart.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="GameState.cs" />
-    <Compile Include="InGameGameState.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="PlayerCharacter.cs" />
     <Compile Include="Program.cs" />
