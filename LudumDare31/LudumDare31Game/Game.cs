@@ -18,6 +18,8 @@ namespace LudumDare31Game
         public bool IsPaused {get;set;}
         public Gamestate Gamestate { get; set; }
 
+        private InputManager inputManager;
+
         public void Run() 
         {
             RenderForm = new RenderWindow(new VideoMode(800, 600), "Notaripoff - The Game");
@@ -57,11 +59,13 @@ namespace LudumDare31Game
         }
         public void Update(int deltatime)
         {
+			inputManager.Update();
             if (this.Gamestate == Gamestate.InGame) 
             {
                 Gamemap.Update(this, deltatime);
             }
             //Add code for Menu and WorldSelector
+            
         }
 
         public void Draw(int deltatime) 
