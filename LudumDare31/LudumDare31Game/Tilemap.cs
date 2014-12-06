@@ -55,7 +55,13 @@ namespace LudumDare31Game
 
         public void Draw(Game g, int deltatime) 
         {
-            
+            for (int y = 0; y < VerticalSize; y++)
+            {
+                for (int x = 0; x < HorizontalSize; x++)
+                {
+                    Tiles[x, y].Sprite.DrawAt(g, x, y);
+                }
+            }
         }
 
 

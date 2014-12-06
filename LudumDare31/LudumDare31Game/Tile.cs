@@ -3,16 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SFML.Window;
 
 namespace LudumDare31Game
 {
     public class Tile
     {
-        public DrawablePart Sprite { get; set; }
         public TileType Tiletype { get; set; }
+        public Vector2f Position { get; set; }
+        public Dictionary<WorldSetting, Image> Sprites { get; set; }
 
 
-        private TileType tileType;
 
 
 
@@ -21,14 +22,15 @@ namespace LudumDare31Game
             // TODO: Complete member initialization
 
             // ContentLoader.LoadDrawable(tiletype)
-            this.tileType = tileType;
+            this.Tiletype = tileType;
+            Sprites = new Dictionary<WorldSetting,Image>();
         }
 
 
 
         public void Load() 
         {
-            Sprite = new DrawablePart(this.Tiletype);
+            //Load All sprites with Tiletype = tileType
         }
         public void Update(Game g, int deltatime)
         {
@@ -36,7 +38,7 @@ namespace LudumDare31Game
         }
         public void Draw(Game g, int deltatime)
         {
-            Sprite.Draw(g, deltatime);
+            
         }
 
 
