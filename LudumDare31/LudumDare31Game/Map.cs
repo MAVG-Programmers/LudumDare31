@@ -17,22 +17,36 @@ namespace LudumDare31Game
             
         public void Load()
         {
-            //foreach tile do:
-            //tiletype = Mapfile.LoadTile(xPos, yPos)
-            //tile.Sprites = Mapfile.DeserializeSpriteDictionary(tiletype)
-
-            this.Tiles = Tilemap.FromFile("test.map");
+            this.Tiles = Tilemap.FromFile("../../../../Maps/testmap/testmap.map");
             this.Entities = new List<Entity>();
+
+            //Load the Entities
+            foreach (Entity entity in Entities)
+            {
+                //Load entities from file somewhere?!
+                entity.Load();
+            }
         }
 
         public void Update(Game g, int deltatime)
         {
-
+            //Update the Entities
+            foreach (Entity entity in Entities)
+            {
+                entity.Update(g, deltatime);
+            }
         }
 
-        public void Draw(Game g, int deltatime) 
+        public void Draw(Game g, int deltatime)
         {
+            //Draw the Tilemap
             Tiles.Draw(g, deltatime);
+
+            //Draw the Entities
+            foreach (Entity entity in Entities) 
+            {
+                entity.Draw(g, deltatime);
+            }
         }
     }
 }

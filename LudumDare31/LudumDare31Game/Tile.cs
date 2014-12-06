@@ -8,7 +8,13 @@ namespace LudumDare31Game
 {
     public class Tile
     {
+        public DrawablePart Sprite { get; set; }
+        public TileType Tiletype { get; set; }
+
+
         private TileType tileType;
+
+
 
         public Tile(TileType tileType)
         {
@@ -17,12 +23,12 @@ namespace LudumDare31Game
             // ContentLoader.LoadDrawable(tiletype)
             this.tileType = tileType;
         }
-        public DrawablePart Sprite { get; set; }
-        public TileType Tiletype { get; set; }
+
+
 
         public void Load() 
         {
-        
+            Sprite = new DrawablePart(this.Tiletype);
         }
         public void Update(Game g, int deltatime)
         {
@@ -30,8 +36,11 @@ namespace LudumDare31Game
         }
         public void Draw(Game g, int deltatime)
         {
-            Sprite.Draw(g, deltatime, this.Tiletype);
+            Sprite.Draw(g, deltatime);
         }
+
+
+
 
         public static Tile FromInt(int p)
         {
@@ -48,6 +57,9 @@ namespace LudumDare31Game
             }
         }
 
+
+
+
         public void DebugDraw(Game g)
         {
             switch (this.tileType)
@@ -57,7 +69,7 @@ namespace LudumDare31Game
                     Console.Write("0");
                     break;
                 case TileType.Surface:
-                   Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.Write("1");
                     break;
                 case TileType.Underground:

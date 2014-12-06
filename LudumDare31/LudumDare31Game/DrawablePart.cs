@@ -7,7 +7,12 @@ namespace LudumDare31Game
 {
     public class DrawablePart
     {
-        public void Draw(Game g, int deltatime, TileType tile)
+        public DrawablePart(TileType tiletype) 
+        {
+            
+        }
+
+        public void Draw(Game g, int deltatime)
         {
             //WorldSetting ws = g.Gamemap.WorldSetting
         }

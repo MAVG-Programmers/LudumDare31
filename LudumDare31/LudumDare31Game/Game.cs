@@ -15,6 +15,8 @@ namespace LudumDare31Game
 
         public RenderWindow RenderForm { get; set; }
         public Map Gamemap { get; set; }
+        public bool IsPaused {get;set;}
+        public Gamestate Gamestate { get; set; }
 
         public void Run() 
         {
@@ -55,22 +57,27 @@ namespace LudumDare31Game
         }
         public void Update(int deltatime)
         {
-            
+            if (this.Gamestate == Gamestate.InGame) 
+            {
+                Gamemap.Update(this, deltatime);
+            }
+            //Add code for Menu and WorldSelector
         }
 
         public void Draw(int deltatime) 
         {
-            //Gamemap.Draw(this, deltatime);
-        }
+            if (this.Gamestate == Gamestate.InGame)
+            {
+                RenderForm.SetView(RenderForm.DefaultView); //this should only be done if the gamestate changes
+                Gamemap.Draw(this, deltatime);
+            }
+            //if gamestate = menu
+            //view = default view
+            //draw menu
 
-        public void Pause() 
-        {
-            
-        }
-
-        public void Unpause() 
-        {
-            
+            //if gamestate = selector
+            //4+ views (1 for each world)
+            //draw selector
         }
 
         public void Dispose()
