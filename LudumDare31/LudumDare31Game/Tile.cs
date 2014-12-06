@@ -11,9 +11,7 @@ namespace LudumDare31Game
     {
         public TileType Tiletype { get; set; }
         public Vector2f Position { get; set; }
-        public Dictionary<WorldSetting, Image> Sprites { get; set; }
-
-
+        public Image Sprite { get; set; }
 
 
 
@@ -23,12 +21,12 @@ namespace LudumDare31Game
 
             // ContentLoader.LoadDrawable(tiletype)
             this.Tiletype = tileType;
-            Sprites = new Dictionary<WorldSetting,Image>();
+            Sprite = new Image("../../../Maps/testmap/Normal/" + Tiletype.ToString());
         }
 
 
 
-        public void Load() 
+        public void Load()
         {
             //Load All sprites with Tiletype = tileType
         }
@@ -64,7 +62,7 @@ namespace LudumDare31Game
 
         public void DebugDraw(Game g)
         {
-            switch (this.tileType)
+            switch (this.Tiletype)
             {
                 case TileType.Empty:
                     Console.ForegroundColor = ConsoleColor.White;

@@ -59,7 +59,7 @@ namespace LudumDare31Game
             {
                 for (int x = 0; x < HorizontalSize; x++)
                 {
-                    Tiles[x, y].Sprite.DrawAt(g, x, y);
+                    Tiles[x, y].Draw(g, deltatime);
                 }
             }
         }
