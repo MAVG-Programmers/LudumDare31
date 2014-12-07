@@ -10,7 +10,7 @@ namespace LudumDare31Game
 {
     public class PlayerCharacter : Transformable, Entity
     {
-        private int playerSpeed = 10;
+        private int playerSpeed = 5;
 
         public void Load()
         {
@@ -19,25 +19,26 @@ namespace LudumDare31Game
 
         public void Update(Game g, int deltaTime)
         {
-            if(g.inputManager.IsKeyPressed(Keyboard.Key.W))
+            if(Keyboard.IsKeyPressed(Keyboard.Key.W))
             {
                 base.Position = new Vector2f(base.Position.X, base.Position.Y + playerSpeed * deltaTime);
             }
 
-            if (g.inputManager.IsKeyPressed(Keyboard.Key.A))
+            if (Keyboard.IsKeyPressed(Keyboard.Key.A))
             {
                 base.Position = new Vector2f(base.Position.X - playerSpeed * deltaTime, base.Position.Y);
             }
 
-            if (g.inputManager.IsKeyPressed(Keyboard.Key.S))
+            if (Keyboard.IsKeyPressed(Keyboard.Key.S))
             {
                 base.Position = new Vector2f(base.Position.X, base.Position.Y - playerSpeed * deltaTime);
             }
 
-            if (g.inputManager.IsKeyPressed(Keyboard.Key.D))
+            if (Keyboard.IsKeyPressed(Keyboard.Key.D))
             {
                 base.Position = new Vector2f(base.Position.X + playerSpeed * deltaTime, base.Position.Y);
             }
+
         }
 
         public void Draw(Game g, int deltatime)
