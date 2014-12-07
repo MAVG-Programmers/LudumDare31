@@ -13,6 +13,8 @@ namespace LudumDare31Game
         public Vector2f Position { get; set; }
         public Sprite Sprite { get; set; }
 
+        public FloatRect TileBox { get; private set; }
+
         private Dictionary<WorldSetting, Texture> Textures;
 
 
@@ -57,14 +59,16 @@ namespace LudumDare31Game
             this.Sprite = new Sprite(new Texture(Textures[WorldSetting.Normal]));
             //Sets the position of the sprite
             this.Sprite.Position = new Vector2f(this.Position.X * 32, this.Position.Y * 32); ; //*32 because tilesize is 32 and the Position vector is in Tiles.
+
+            
         }
 
         public void Update(Game g, int deltatime)
         {
             //Change sprite according to worldsetting
-            Console.WriteLine(this.Position.X);
             this.Sprite.Texture = Textures[g.Gamemap.WorldSetting];
             this.Sprite.Position = new Vector2f(this.Position.X * 32, this.Position.Y * 32); ; //*32 because tilesize is 32 and the Position vector is in Tiles.
+            TileBox = this.Sprite.GetGlobalBounds();
         }
 
         public void Draw(Game g)
