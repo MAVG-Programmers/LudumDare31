@@ -13,7 +13,7 @@ namespace LudumDare31Game
         public Vector2f Position { get; set; }
         public Sprite Sprite { get; set; }
 
-        private Dictionary<WorldSetting, Image> Images;
+        private Dictionary<WorldSetting, Texture> Textures;
 
 
         public Tile(TileType tileType)
@@ -22,7 +22,7 @@ namespace LudumDare31Game
 
             // ContentLoader.LoadDrawable(tiletype)
             this.Tiletype = tileType;
-            Images = new Dictionary<WorldSetting,Image>();
+            Textures = new Dictionary<WorldSetting,Texture>();
             //Sprite = new Image("../../../Maps/testmap/Normal/" + Tiletype.ToString());
         }
 
@@ -37,24 +37,24 @@ namespace LudumDare31Game
             switch (this.Tiletype) 
             {
                 case TileType.Surface:
-                    this.Images.Add(WorldSetting.Normal, new Image("../../../../Sprites/Normal/SurfaceTile.png"));
-                    this.Images.Add(WorldSetting.Fire, new Image("../../../../Sprites/Fire/SurfaceTile.png"));
-                    this.Images.Add(WorldSetting.Ice, new Image("../../../../Sprites/Ice/SurfaceTile.png"));
+                    this.Textures.Add(WorldSetting.Normal, new Texture("../../../../Sprites/Normal/SurfaceTile.png"));
+                    this.Textures.Add(WorldSetting.Fire, new Texture("../../../../Sprites/Fire/SurfaceTile.png"));
+                    this.Textures.Add(WorldSetting.Ice, new Texture("../../../../Sprites/Ice/SurfaceTile.png"));
                     break;
                 case TileType.Underground:
-                    this.Images.Add(WorldSetting.Normal, new Image("../../../../Sprites/Normal/UndergroundTile.png"));
-                    this.Images.Add(WorldSetting.Fire, new Image("../../../../Sprites/Fire/UndergroundTile.png"));
-                    this.Images.Add(WorldSetting.Ice, new Image("../../../../Sprites/Ice/UndergroundTile.png"));
+                    this.Textures.Add(WorldSetting.Normal, new Texture("../../../../Sprites/Normal/UndergroundTile.png"));
+                    this.Textures.Add(WorldSetting.Fire, new Texture("../../../../Sprites/Fire/UndergroundTile.png"));
+                    this.Textures.Add(WorldSetting.Ice, new Texture("../../../../Sprites/Ice/UndergroundTile.png"));
                     break;
                 default:
-                    this.Images.Add(WorldSetting.Normal, new Image(32, 32, Color.Transparent));
-                    this.Images.Add(WorldSetting.Fire, new Image(32, 32, Color.Transparent));
-                    this.Images.Add(WorldSetting.Ice, new Image(32, 32, Color.Transparent));
+                    this.Textures.Add(WorldSetting.Normal, new Texture(32, 32));
+                    this.Textures.Add(WorldSetting.Fire, new Texture(32, 32));
+                    this.Textures.Add(WorldSetting.Ice, new Texture(32, 32));
                     break;
             }
 
             
-            this.Sprite = new Sprite(new Texture(Images[WorldSetting.Normal]));
+            this.Sprite = new Sprite(new Texture(Textures[WorldSetting.Normal]));
             //Sets the position of the sprite
             this.Sprite.Position = new Vector2f(this.Position.X * 32, this.Position.Y * 32); ; //*32 because tilesize is 32 and the Position vector is in Tiles.
         }
@@ -63,7 +63,7 @@ namespace LudumDare31Game
         {
             //Change sprite according to worldsetting
             Console.WriteLine(this.Position.X);
-            this.Sprite = new Sprite(new Texture(Images[g.Gamemap.WorldSetting]));
+            this.Sprite.Texture = Textures[g.Gamemap.WorldSetting];
             this.Sprite.Position = new Vector2f(this.Position.X * 32, this.Position.Y * 32); ; //*32 because tilesize is 32 and the Position vector is in Tiles.
         }
 
