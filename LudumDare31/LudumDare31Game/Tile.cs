@@ -44,7 +44,7 @@ namespace LudumDare31Game
                 case TileType.Underground:
                     this.Textures.Add(WorldSetting.Normal, new Texture("../../../../Sprites/Normal/UndergroundTile.png"));
                     this.Textures.Add(WorldSetting.Fire, new Texture("../../../../Sprites/Fire/UndergroundTile.png"));
-                    this.Textures.Add(WorldSetting.Ice, new Texture("../../../../Sprites/Ice/UndergroundTile.png"));
+                    this.Textures.Add(WorldSetting.Ice, new Texture("../../../../Sprites/Ice/UndergroundTile2.png"));
                     break;
                 default:
                     this.Textures.Add(WorldSetting.Normal, new Texture(32, 32));
@@ -62,7 +62,6 @@ namespace LudumDare31Game
         public void Update(Game g, int deltatime)
         {
             //Change sprite according to worldsetting
-            Console.WriteLine(this.Position.X);
             this.Sprite.Texture = Textures[g.Gamemap.WorldSetting];
             this.Sprite.Position = new Vector2f(this.Position.X * 32, this.Position.Y * 32); ; //*32 because tilesize is 32 and the Position vector is in Tiles.
         }
