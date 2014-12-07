@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SFML.Window;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -46,20 +47,33 @@ namespace LudumDare31Game
 
                 for (int x = 0; x < xSize; x++)
                 {
-                    tm.Tiles[x, y-2] = Tile.FromInt(int.Parse(cells[x]));
+                    tm.Tiles[x, y - 2] = Tile.FromInt(int.Parse(cells[x]));
+                    tm.Tiles[x, y - 2].Position = new Vector2f(x, y);
+                    tm.Tiles[x, y - 2].Load();
                 }
             }
 
             return tm;
         }
 
-        public void Draw(Game g, int deltatime) 
+        public void Update(Game g, int deltatime) 
         {
             for (int y = 0; y < VerticalSize; y++)
             {
                 for (int x = 0; x < HorizontalSize; x++)
                 {
-                    Tiles[x, y].Draw(g, deltatime);
+                    Tiles[x, y].Update(g, deltatime);
+                }
+            }
+        }
+
+        public void Draw(Game g) 
+        {
+            for (int y = 0; y < VerticalSize; y++)
+            {
+                for (int x = 0; x < HorizontalSize; x++)
+                {
+                    Tiles[x, y].Draw(g);
                 }
             }
         }

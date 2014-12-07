@@ -11,8 +11,9 @@ namespace LudumDare31Game
     {
         public TileType Tiletype { get; set; }
         public Vector2f Position { get; set; }
-        public Image Sprite { get; set; }
+        public Sprite Sprite { get; set; }
 
+        private Dictionary<WorldSetting, Image> Images;
 
 
         public Tile(TileType tileType)
@@ -21,6 +22,7 @@ namespace LudumDare31Game
 
             // ContentLoader.LoadDrawable(tiletype)
             this.Tiletype = tileType;
+            Images = new Dictionary<WorldSetting,Image>();
             //Sprite = new Image("../../../Maps/testmap/Normal/" + Tiletype.ToString());
         }
 
@@ -29,17 +31,45 @@ namespace LudumDare31Game
         public void Load()
         {
             //Load All sprites with Tiletype = tileType
+            //Texture tex = new Texture("../../../../Sprites/Normal/SurfaceTile.png");
+
+
+            switch (this.Tiletype) 
+            {
+                case TileType.Surface:
+                    this.Images.Add(WorldSetting.Normal, new Image("../../../../Sprites/Normal/SurfaceTile.png"));
+                    this.Images.Add(WorldSetting.Fire, new Image("../../../../Sprites/Fire/SurfaceTile.png"));
+                    this.Images.Add(WorldSetting.Ice, new Image("../../../../Sprites/Ice/SurfaceTile.png"));
+                    break;
+                case TileType.Underground:
+                    this.Images.Add(WorldSetting.Normal, new Image("../../../../Sprites/Normal/UndergroundTile.png"));
+                    this.Images.Add(WorldSetting.Fire, new Image("../../../../Sprites/Fire/UndergroundTile.png"));
+                    this.Images.Add(WorldSetting.Ice, new Image("../../../../Sprites/Ice/UndergroundTile.png"));
+                    break;
+                default:
+                    this.Images.Add(WorldSetting.Normal, new Image(32, 32, Color.Transparent));
+                    this.Images.Add(WorldSetting.Fire, new Image(32, 32, Color.Transparent));
+                    this.Images.Add(WorldSetting.Ice, new Image(32, 32, Color.Transparent));
+                    break;
+            }
+
+            
+            this.Sprite = new Sprite(new Texture(Images[WorldSetting.Normal]));
+            //Sets the position of the sprite
+            this.Sprite.Position = new Vector2f(this.Position.X * 32, this.Position.Y * 32); ; //*32 because tilesize is 32 and the Position vector is in Tiles.
         }
+
         public void Update(Game g, int deltatime)
         {
-            
+            //Change sprite according to worldsetting
+            Console.WriteLine(this.Position.X);
+            this.Sprite = new Sprite(new Texture(Images[g.Gamemap.WorldSetting]));
         }
-        public void Draw(Game g, int deltatime)
+
+        public void Draw(Game g)
         {
-            
+            g.RenderForm.Draw(this.Sprite);
         }
-
-
 
 
         public static Tile FromInt(int p)

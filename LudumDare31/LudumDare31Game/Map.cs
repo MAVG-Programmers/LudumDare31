@@ -1,4 +1,5 @@
 ﻿using SFML.Graphics;
+using SFML.Window;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,6 +31,21 @@ namespace LudumDare31Game
 
         public void Update(Game g, int deltatime)
         {
+            if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Normal) 
+            {
+                this.WorldSetting = WorldSetting.Fire;
+            }
+            else if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Fire)
+            {
+                this.WorldSetting = WorldSetting.Ice;
+            }
+            else if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Ice)
+            {
+                this.WorldSetting = WorldSetting.Normal;
+            }
+
+
+            Tiles.Update(g, deltatime);
             //Update the Entities
             foreach (Entity entity in Entities)
             {
@@ -40,7 +56,7 @@ namespace LudumDare31Game
         public void Draw(Game g, int deltatime)
         {
             //Draw the Tilemap
-            Tiles.Draw(g, deltatime);
+            Tiles.Draw(g);
 
             //Draw the Entities
             foreach (Entity entity in Entities) 
