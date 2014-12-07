@@ -64,6 +64,7 @@ namespace LudumDare31Game
             //Change sprite according to worldsetting
             Console.WriteLine(this.Position.X);
             this.Sprite = new Sprite(new Texture(Images[g.Gamemap.WorldSetting]));
+            this.Sprite.Position = new Vector2f(this.Position.X * 32, this.Position.Y * 32); ; //*32 because tilesize is 32 and the Position vector is in Tiles.
         }
 
         public void Draw(Game g)
