@@ -14,7 +14,7 @@ namespace LudumDare31Game
         public Sprite Sprite { get; set; }
 
         private Dictionary<WorldSetting, Texture> Textures;
-
+        private Shader shader;
 
         public Tile(TileType tileType)
         {
@@ -33,7 +33,6 @@ namespace LudumDare31Game
             //Load All sprites with Tiletype = tileType
             //Texture tex = new Texture("../../../../Sprites/Normal/SurfaceTile.png");
 
-
             switch (this.Tiletype) 
             {
                 case TileType.Surface:
@@ -44,7 +43,7 @@ namespace LudumDare31Game
                 case TileType.Underground:
                     this.Textures.Add(WorldSetting.Normal, new Texture("../../../../Sprites/Normal/UndergroundTile.png"));
                     this.Textures.Add(WorldSetting.Fire, new Texture("../../../../Sprites/Fire/UndergroundTile.png"));
-                    this.Textures.Add(WorldSetting.Ice, new Texture("../../../../Sprites/Ice/UndergroundTile2.png"));
+                    this.Textures.Add(WorldSetting.Ice, new Texture("../../../../Sprites/Ice/UndergroundTile.png"));
                     break;
                 default:
                     this.Textures.Add(WorldSetting.Normal, new Texture(32, 32));
