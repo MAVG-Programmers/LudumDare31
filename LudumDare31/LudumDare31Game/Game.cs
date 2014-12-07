@@ -34,6 +34,7 @@ namespace LudumDare31Game
             inputManager = new InputManager(this);
 
             player = new PlayerCharacter();
+            player.Load();
 
             //Gamemap.DebugDraw(this);
 
@@ -81,6 +82,8 @@ namespace LudumDare31Game
             {
                 RenderForm.SetView(RenderForm.DefaultView); //this should only be done if the gamestate changes
                 Gamemap.Draw(this, deltatime);
+
+                player.Draw(this, deltatime);
             }
             //if gamestate = menu
             //view = default view
