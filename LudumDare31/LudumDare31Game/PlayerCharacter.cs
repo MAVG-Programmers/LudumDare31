@@ -10,7 +10,7 @@ namespace LudumDare31Game
 {
     public class PlayerCharacter : Transformable, Entity
     {
-        private float playerSpeed = .5f;
+        private float playerSpeed = .1f;
 
         private Texture texture;
         private Sprite sprite;
@@ -52,22 +52,30 @@ namespace LudumDare31Game
             {
                 if (t.Tiletype != TileType.Empty)
                 {
-                    if(Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Top)
+                    double a = sprite.Position.X - t.Sprite.Position.X;
+                    double b = sprite.Position.Y - t.Sprite.Position.Y;
+
+                    double distance = Math.Sqrt(a*a + b*b);
+                    if(distance < 32)
                     {
-                        base.Position = new Vector2f(1, 1);
+                        if (Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Top)
+                        {
+                            base.Position = new Vector2f(1, 1);
+                        }
+                        if (Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Bottom)
+                        {
+                            base.Position = new Vector2f(1, 1);
+                        }
+                        if (Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Left)
+                        {
+                            base.Position = new Vector2f(1, 1);
+                        }
+                        if (Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Right)
+                        {
+                            base.Position = new Vector2f(1, 1);
+                        }
                     }
-                    if (Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Bottom)
-                    {
-                        base.Position = new Vector2f(1, 1);
-                    }
-                    if (Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Left)
-                    {
-                        base.Position = new Vector2f(1, 1);
-                    }
-                    if (Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Right)
-                    {
-                        base.Position = new Vector2f(1, 1);
-                    }
+                    
                 }
             }
         }

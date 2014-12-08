@@ -16,7 +16,6 @@ namespace LudumDare31Game
         //public FloatRect TileBox { get; private set; }
 
         private Dictionary<WorldSetting, Texture> Textures;
-        private Shader shader;
 
         public Tile(TileType tileType)
         {

@@ -35,11 +35,11 @@ namespace LudumDare31Game
                     Console.WriteLine(CollisionSide.Left);
                     colSide = CollisionSide.Left;
                 }
-                if (sprite1.GetGlobalBounds().Top + sprite1.GetGlobalBounds().Height > sprite2.GetGlobalBounds().Top && sprite1.GetGlobalBounds().Top + sprite1.GetGlobalBounds().Height < sprite2.GetGlobalBounds().Top + sprite2.GetGlobalBounds().Height)
-                {
-                    Console.WriteLine(CollisionSide.Bottom);
-                    colSide = CollisionSide.Bottom;
-                }
+                //if (sprite1.GetGlobalBounds().Top + sprite1.GetGlobalBounds().Height > sprite2.GetGlobalBounds().Top && sprite1.GetGlobalBounds().Top + sprite1.GetGlobalBounds().Height < sprite2.GetGlobalBounds().Top + sprite2.GetGlobalBounds().Height)
+                //{
+                //    Console.WriteLine(CollisionSide.Bottom);
+                //    colSide = CollisionSide.Bottom;
+                //}
                 if (sprite1.GetGlobalBounds().Top < sprite2.GetGlobalBounds().Top + sprite2.GetGlobalBounds().Height && sprite1.GetGlobalBounds().Top > sprite2.GetGlobalBounds().Top)
                 {
                     Console.WriteLine(CollisionSide.Top);
