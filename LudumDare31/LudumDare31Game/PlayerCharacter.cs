@@ -74,8 +74,7 @@ namespace LudumDare31Game
                         {
                             base.Position = new Vector2f(1, 1);
                         }
-                    }
-                    
+                    }   
                 }
             }
         }
