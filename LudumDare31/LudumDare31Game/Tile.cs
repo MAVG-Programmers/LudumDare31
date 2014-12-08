@@ -16,7 +16,7 @@ namespace LudumDare31Game
         //public FloatRect TileBox { get; private set; }
 
         private Dictionary<WorldSetting, Texture> Textures;
-
+        private Shader shader;
 
         public Tile(TileType tileType)
         {
@@ -34,7 +34,6 @@ namespace LudumDare31Game
         {
             //Load All sprites with Tiletype = tileType
             //Texture tex = new Texture("../../../../Sprites/Normal/SurfaceTile.png");
-
 
             switch (this.Tiletype) 
             {

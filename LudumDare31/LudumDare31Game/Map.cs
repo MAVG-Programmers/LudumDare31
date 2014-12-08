@@ -31,6 +31,10 @@ namespace LudumDare31Game
 
         public void Update(Game g, int deltatime)
         {
+            Console.WriteLine(deltatime);
+
+            
+
             if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Normal) 
             {
                 this.WorldSetting = WorldSetting.Fire;
