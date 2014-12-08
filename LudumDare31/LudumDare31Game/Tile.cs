@@ -34,9 +34,9 @@ namespace LudumDare31Game
         {
             
         }
-        public void Draw(Game g, int deltatime)
+        public void Draw(Game g)
         {
-            Sprite.Draw(g, deltatime);
+            Sprite.Draw(g);
         }
 
 

@@ -14,7 +14,7 @@ namespace LudumDare31Game
 
         public Tilemap(int xSize, int ySize)
         {
-            Tiles = new Tile[16, 8];
+            Tiles = new Tile[xSize, ySize];
             HorizontalSize = xSize;
             VerticalSize = ySize;
         }
@@ -55,7 +55,13 @@ namespace LudumDare31Game
 
         public void Draw(Game g, int deltatime) 
         {
-            
+            for (int y = 0; y < VerticalSize; y++)
+            {
+                for (int x = 0; x < HorizontalSize; x++)
+                {
+                    Tiles[x, y].Draw(g);
+                }
+            }
         }
 
 
