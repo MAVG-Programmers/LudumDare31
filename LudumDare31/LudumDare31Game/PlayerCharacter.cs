@@ -15,25 +15,18 @@ namespace LudumDare31Game
         private Texture texture;
         private Sprite sprite;
 
-        public FloatRect PlayerBox { get; private set; }
-
-        private Collision col;
-
         public void Load()
         {
             texture = new Texture("../../../../Sprites/Player/Trollman.png");
             sprite = new Sprite(texture);
-
-            PlayerBox = sprite.GetGlobalBounds();
-
+            
+            
             sprite.Position = new Vector2f(0, 0);
-
-            col = new Collision();
         }
 
         public void Update(Game g, int deltaTime)
         {
-            if(Keyboard.IsKeyPressed(Keyboard.Key.W))
+            if (Keyboard.IsKeyPressed(Keyboard.Key.W))
             {
                 base.Position = new Vector2f(base.Position.X, base.Position.Y - playerSpeed * deltaTime);
             }
@@ -57,10 +50,24 @@ namespace LudumDare31Game
 
             foreach(Tile t in g.Gamemap.Tiles.Tiles)
             {
-                //col.CheckCollision(PlayerBox, t.TileBox);
-                if (PlayerBox.Intersects(t.TileBox))
+                if (t.Tiletype != TileType.Empty)
                 {
-                    Console.Write(11111111111111);
+                    if(Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Top)
+                    {
+                        base.Position = new Vector2f(1, 1);
+                    }
+                    if (Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Bottom)
+                    {
+                        base.Position = new Vector2f(1, 1);
+                    }
+                    if (Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Left)
+                    {
+                        base.Position = new Vector2f(1, 1);
+                    }
+                    if (Collision.CheckCollision(sprite, t.Sprite) == CollisionSide.Right)
+                    {
+                        base.Position = new Vector2f(1, 1);
+                    }
                 }
             }
         }
