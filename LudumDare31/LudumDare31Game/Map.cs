@@ -18,7 +18,7 @@ namespace LudumDare31Game
             
         public void Load()
         {
-            this.Tiles = Tilemap.FromFile("../../../../Maps/testmap/testmap.map");
+            this.Tiles = Tilemap.FromFile("Maps/testmap/testmap.map");
             this.Entities = new List<Entity>();
 
             //Load the Entities
