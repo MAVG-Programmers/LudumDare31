@@ -1,0 +1,1 @@
+the testmap.map file is always named like this: foldername + ".map"

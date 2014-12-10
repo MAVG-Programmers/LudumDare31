@@ -1,0 +1,1 @@
+this is optional, if it is empty the default sprites will be used

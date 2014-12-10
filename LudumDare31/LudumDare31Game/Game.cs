@@ -17,15 +17,20 @@ namespace LudumDare31Game
         public Map Gamemap { get; set; }
         public bool IsPaused {get;set;}
         public Gamestate Gamestate { get; set; }
+        public InputManager InputManager { get; set; }
+        public PlayerCharacter Player { get; private set; }
 
         public void Run() 
         {
             RenderForm = new RenderWindow(new VideoMode(800, 600), "Notaripoff - The Game");
-
+            RenderForm.SetFramerateLimit(120);
             RenderForm.Closed += RenderForm_Closed;
 
-            Gamemap = new Map();
-            Gamemap.Load();
+            
+
+            InputManager = new InputManager(this);
+
+            Load();
 
             //Gamemap.DebugDraw(this);
 
@@ -40,7 +45,7 @@ namespace LudumDare31Game
 
                 Update(deltatime);
                 Draw(deltatime);
-
+                
                 RenderForm.Display();
             }
         }
@@ -53,15 +58,21 @@ namespace LudumDare31Game
 
         public void Load() 
         {
-        
+            Gamemap = new Map();
+            Gamemap.Load();
+
+            Player = new PlayerCharacter();
         }
         public void Update(int deltatime)
         {
+			InputManager.Update();
             if (this.Gamestate == Gamestate.InGame) 
             {
                 Gamemap.Update(this, deltatime);
+                Player.Update(this, deltatime);
             }
             //Add code for Menu and WorldSelector
+
         }
 
         public void Draw(int deltatime) 
