@@ -35,15 +35,15 @@ namespace LudumDare31Game
 
             
 
-            if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Normal) 
+            if (g.InputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Normal) 
             {
                 this.WorldSetting = WorldSetting.Fire;
             }
-            else if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Fire)
+            else if (g.InputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Fire)
             {
                 this.WorldSetting = WorldSetting.Ice;
             }
-            else if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Ice)
+            else if (g.InputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Ice)
             {
                 this.WorldSetting = WorldSetting.Normal;
             }

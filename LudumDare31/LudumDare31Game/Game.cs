@@ -17,10 +17,8 @@ namespace LudumDare31Game
         public Map Gamemap { get; set; }
         public bool IsPaused {get;set;}
         public Gamestate Gamestate { get; set; }
-
-        public InputManager inputManager { get; set; }
-
-        public PlayerCharacter player { get; private set; }
+        public InputManager InputManager { get; set; }
+        public PlayerCharacter Player { get; private set; }
 
         public void Run() 
         {
@@ -28,12 +26,11 @@ namespace LudumDare31Game
             RenderForm.SetFramerateLimit(120);
             RenderForm.Closed += RenderForm_Closed;
 
-            Gamemap = new Map();
-            Gamemap.Load();
+            
 
-            inputManager = new InputManager(this);
+            InputManager = new InputManager(this);
 
-            player = new PlayerCharacter();
+            Load();
 
             //Gamemap.DebugDraw(this);
 
@@ -61,18 +58,21 @@ namespace LudumDare31Game
 
         public void Load() 
         {
-        
+            Gamemap = new Map();
+            Gamemap.Load();
+
+            Player = new PlayerCharacter();
         }
         public void Update(int deltatime)
         {
-			inputManager.Update();
+			InputManager.Update();
             if (this.Gamestate == Gamestate.InGame) 
             {
                 Gamemap.Update(this, deltatime);
+                Player.Update(this, deltatime);
             }
             //Add code for Menu and WorldSelector
 
-            player.Update(this, deltatime);
         }
 
         public void Draw(int deltatime) 
