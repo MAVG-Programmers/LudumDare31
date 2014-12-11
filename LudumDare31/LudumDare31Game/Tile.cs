@@ -35,14 +35,14 @@ namespace LudumDare31Game
             switch (this.Tiletype) 
             {
                 case TileType.Surface:
-                    this.Textures.Add(WorldSetting.Normal, new Texture("../../../../Sprites/Normal/SurfaceTile.png"));
-                    this.Textures.Add(WorldSetting.Fire, new Texture("../../../../Sprites/Fire/SurfaceTile.png"));
-                    this.Textures.Add(WorldSetting.Ice, new Texture("../../../../Sprites/Ice/SurfaceTile.png"));
+                    this.Textures.Add(WorldSetting.Normal, new Texture("Sprites/Normal/SurfaceTile.png"));
+                    this.Textures.Add(WorldSetting.Fire, new Texture("Sprites/Fire/SurfaceTile.png"));
+                    this.Textures.Add(WorldSetting.Ice, new Texture("Sprites/Ice/SurfaceTile.png"));
                     break;
                 case TileType.Underground:
-                    this.Textures.Add(WorldSetting.Normal, new Texture("../../../../Sprites/Normal/UndergroundTile.png"));
-                    this.Textures.Add(WorldSetting.Fire, new Texture("../../../../Sprites/Fire/UndergroundTile.png"));
-                    this.Textures.Add(WorldSetting.Ice, new Texture("../../../../Sprites/Ice/UndergroundTile.png"));
+                    this.Textures.Add(WorldSetting.Normal, new Texture("Sprites/Normal/UndergroundTile.png"));
+                    this.Textures.Add(WorldSetting.Fire, new Texture("Sprites/Fire/UndergroundTile.png"));
+                    this.Textures.Add(WorldSetting.Ice, new Texture("Sprites/Ice/UndergroundTile.png"));
                     break;
                 default:
                     this.Textures.Add(WorldSetting.Normal, new Texture(32, 32));

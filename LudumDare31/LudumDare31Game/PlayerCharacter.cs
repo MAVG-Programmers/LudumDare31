@@ -17,7 +17,7 @@ namespace LudumDare31Game
 
         public void Load()
         {
-            texture = new Texture("../../../../Sprites/Player/Trollman.png");
+            texture = new Texture("Sprites/Player/Trollman.png");
             sprite = new Sprite(texture);
             
             
