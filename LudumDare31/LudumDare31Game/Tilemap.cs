@@ -15,7 +15,7 @@ namespace LudumDare31Game
 
         public Tilemap(int xSize, int ySize)
         {
-            Tiles = new Tile[16, 8];
+            Tiles = new Tile[xSize, ySize];
             HorizontalSize = xSize;
             VerticalSize = ySize;
         }
