@@ -66,6 +66,7 @@ namespace LudumDare31Game
             this.Sprite.Position = new Vector2f(this.Position.X * 32, this.Position.Y * 32); ; //*32 because tilesize is 32 and the Position vector is in Tiles.
         }
 
+
         public void Draw(Game g)
         {
             g.RenderForm.Draw(this.Sprite);

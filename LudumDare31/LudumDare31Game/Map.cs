@@ -31,15 +31,23 @@ namespace LudumDare31Game
 
         public void Update(Game g, int deltatime)
         {
+<<<<<<< HEAD
             if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Normal) 
+=======
+            Console.WriteLine(deltatime);
+
+            
+
+            if (g.InputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Normal) 
+>>>>>>> 64b9739c7dfbcc281cb98f8a925acd969364097a
             {
                 this.WorldSetting = WorldSetting.Fire;
             }
-            else if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Fire)
+            else if (g.InputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Fire)
             {
                 this.WorldSetting = WorldSetting.Ice;
             }
-            else if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Ice)
+            else if (g.InputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Ice)
             {
                 this.WorldSetting = WorldSetting.Normal;
             }
