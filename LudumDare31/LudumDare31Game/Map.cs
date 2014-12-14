@@ -15,7 +15,7 @@ namespace LudumDare31Game
         public Tilemap Tiles { get; set; }
         public List<Entity> Entities { get; set; }
         public WorldSetting WorldSetting { get; set; }
-            
+
         public void Load()
         {
             this.Tiles = Tilemap.FromFile("Maps/testmap/testmap.map");
@@ -31,23 +31,15 @@ namespace LudumDare31Game
 
         public void Update(Game g, int deltatime)
         {
-<<<<<<< HEAD
-            if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Normal) 
-=======
-            Console.WriteLine(deltatime);
-
-            
-
-            if (g.InputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Normal) 
->>>>>>> 64b9739c7dfbcc281cb98f8a925acd969364097a
+            if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Normal)
             {
                 this.WorldSetting = WorldSetting.Fire;
             }
-            else if (g.InputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Fire)
+            else if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Fire)
             {
                 this.WorldSetting = WorldSetting.Ice;
             }
-            else if (g.InputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Ice)
+            else if (g.inputManager.IsKeyPressed(Keyboard.Key.Tab) && this.WorldSetting == WorldSetting.Ice)
             {
                 this.WorldSetting = WorldSetting.Normal;
             }
@@ -67,7 +59,7 @@ namespace LudumDare31Game
             Tiles.Draw(g);
 
             //Draw the Entities
-            foreach (Entity entity in Entities) 
+            foreach (Entity entity in Entities)
             {
                 entity.Draw(g, deltatime);
             }

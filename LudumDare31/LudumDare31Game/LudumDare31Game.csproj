@@ -88,7 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="test.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="csfml-audio-2.dll">

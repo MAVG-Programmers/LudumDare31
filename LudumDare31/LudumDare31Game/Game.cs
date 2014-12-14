@@ -1,4 +1,4 @@
-﻿using SFML.Graphics;
+﻿﻿using SFML.Graphics;
 using SFML.Window;
 using System;
 using System.Collections.Generic;
@@ -15,27 +15,26 @@ namespace LudumDare31Game
 
         public RenderWindow RenderForm { get; set; }
         public Map Gamemap { get; set; }
-        public bool IsPaused {get;set;}
+        public bool IsPaused { get; set; }
         public Gamestate Gamestate { get; set; }
-        public InputManager InputManager { get; set; }
-        public PlayerCharacter Player { get; private set; }
 
-        public void Run() 
+        public InputManager inputManager { get; set; }
+
+        public PlayerCharacter player { get; private set; }
+
+        public void Run()
         {
             RenderForm = new RenderWindow(new VideoMode(800, 600), "Notaripoff - The Game");
             RenderForm.SetFramerateLimit(120);
             RenderForm.Closed += RenderForm_Closed;
 
-            
+            Gamemap = new Map();
+            Gamemap.Load();
 
-            InputManager = new InputManager(this);
+            inputManager = new InputManager(this);
 
-<<<<<<< HEAD
             player = new PlayerCharacter();
             player.Load();
-=======
-            Load();
->>>>>>> 64b9739c7dfbcc281cb98f8a925acd969364097a
 
             //Gamemap.DebugDraw(this);
 
@@ -45,12 +44,12 @@ namespace LudumDare31Game
 
                 RenderForm.DispatchEvents();
 
-                int deltatime = (int) sw.ElapsedMilliseconds;
+                int deltatime = (int)sw.ElapsedMilliseconds;
                 sw.Restart();
 
                 Update(deltatime);
                 Draw(deltatime);
-                
+
                 RenderForm.Display();
             }
         }
@@ -61,26 +60,23 @@ namespace LudumDare31Game
         }
 
 
-        public void Load() 
+        public void Load()
         {
-            Gamemap = new Map();
-            Gamemap.Load();
 
-            Player = new PlayerCharacter();
         }
         public void Update(int deltatime)
         {
-			InputManager.Update();
-            if (this.Gamestate == Gamestate.InGame) 
+            inputManager.Update();
+            if (this.Gamestate == Gamestate.InGame)
             {
                 Gamemap.Update(this, deltatime);
-                Player.Update(this, deltatime);
             }
             //Add code for Menu and WorldSelector
 
+            player.Update(this, deltatime);
         }
 
-        public void Draw(int deltatime) 
+        public void Draw(int deltatime)
         {
             if (this.Gamestate == Gamestate.InGame)
             {
