@@ -63,6 +63,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,11 +72,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollisionManager.cs" />
+    <Compile Include="ContentManager.cs" />
     <Compile Include="DrawablePart.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Gamestate.cs" />
     <Compile Include="InputManager.cs" />
+    <Compile Include="LoadedImage.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="PlayerCharacter.cs" />
     <Compile Include="Program.cs" />
