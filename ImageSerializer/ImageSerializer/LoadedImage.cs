@@ -4,8 +4,8 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 using System.Xml.Serialization;
+using System.Drawing;
 
 namespace ImageSerializer
 {
