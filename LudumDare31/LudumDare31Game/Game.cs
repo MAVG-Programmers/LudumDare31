@@ -19,6 +19,7 @@ namespace LudumDare31Game
         public Gamestate Gamestate { get; set; }
         public InputManager InputManager { get; set; }
         public PlayerCharacter Player { get; private set; }
+        public CollisionManager ColManager { get; set; }
 
         public void Run() 
         {
@@ -29,6 +30,7 @@ namespace LudumDare31Game
             
 
             InputManager = new InputManager(this);
+            ColManager = new CollisionManager();
 
             Load();
 

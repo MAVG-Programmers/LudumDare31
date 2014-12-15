@@ -14,7 +14,6 @@ namespace LudumDare31Game
         public Sprite Sprite { get; set; }
 
         private Dictionary<WorldSetting, Texture> Textures;
-        private Shader shader;
 
         public Tile(TileType tileType)
         {
