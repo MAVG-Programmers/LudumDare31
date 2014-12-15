@@ -13,6 +13,7 @@ namespace LudumDare31Game
 {
     class ContentManager
     {
+        private List<LoadedImage> images = new List<LoadedImage>();
         public void Load()
         {
             

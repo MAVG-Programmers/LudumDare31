@@ -28,12 +28,11 @@ namespace ImageSerializer
             InitializeComponent();
         }
 
+        List<LoadedImage> images = new List<LoadedImage>();
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
-
-            List<LoadedImage> images = new List<LoadedImage>();
 
             dialog.Multiselect = true;
             dialog.Title = "Image Browser";
@@ -42,8 +41,11 @@ namespace ImageSerializer
 
             Nullable<bool> result = dialog.ShowDialog();
 
-            AddToImageList(dialog, images);
+            AddToImageList(dialog, images);           
+        }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
             byte[] array = ListToByteArray(images);
 
             BinaryWriter bw = new BinaryWriter(File.Open("XmlImage.bin", FileMode.OpenOrCreate));
@@ -60,9 +62,15 @@ namespace ImageSerializer
                 try
                 {
                     Image loadedImage = Image.FromFile(file);
+
                     string fileName = file.Substring(file.LastIndexOf('\\'));
                     fileName = fileName.Remove(0, 1);
-                    images.Add(new LoadedImage(loadedImage, fileName));
+
+                    LoadedImage image;
+                    images.Add(image = new LoadedImage());
+                    image.assetName = fileName;
+                    image.image = loadedImage;
+
                     textBox.Text += fileName + " ";
                 }
                 catch (Exception ex)

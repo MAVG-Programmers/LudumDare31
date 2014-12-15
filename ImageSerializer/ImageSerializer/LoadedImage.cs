@@ -15,12 +15,5 @@ namespace ImageSerializer
         public Image image { get; set; }
 
         public string assetName { get; set; }
-
-
-        public LoadedImage(Image image, string fileName)
-        {
-            this.image = image;
-            this.assetName = fileName;
-        }
     }
 }
