@@ -4,16 +4,21 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
-using System.Drawing;
+
+using SFML.Graphics;
 
 namespace ImageSerializer
 {
     [Serializable()]
     public class LoadedImage
     {
-        public Image image { get; set; }
+        public Color[,] image { get; set; }
 
         public string assetName { get; set; }
+
+        public LoadedImage()
+        {
+
+        }
     }
 }

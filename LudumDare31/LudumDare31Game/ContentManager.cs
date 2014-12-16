@@ -16,7 +16,7 @@ namespace LudumDare31Game
     class ContentManager
     {
         private List<LoadedImage> loadedImages = new List<LoadedImage>();
-        private Dictionary<string, System.Drawing.Color[][]> images = new Dictionary<string, System.Drawing.Color[][]>();
+        private Dictionary<string, System.Drawing.Color[,]> images = new Dictionary<string, System.Drawing.Color[,]>();
         
         private BinaryFormatter bf;
         
@@ -30,21 +30,21 @@ namespace LudumDare31Game
             
             foreach(LoadedImage i in loadedImages)
             {
-                images.Add(i.assetName, ImageToByte(i.image));
+                images.Add(i.assetName, ImageToColor(i.image));
             }
         }
         
-        private System.Drawing.Color[][] ImageToByte(System.Drawing.Image image)
+        private System.Drawing.Color[,] ImageToColor(System.Drawing.Image image)
         {
             Bitmap bmp = new Bitmap(image);
             
-            System.Drawing.Color[][] tempColorArray = null;
+            System.Drawing.Color[,] tempColorArray = new System.Drawing.Color[bmp.Width, bmp.Height];
             
             for (int x = 0; x < bmp.Width; x++)
             {
                 for (int y = 0; y < bmp.Height; y++)
                 {
-                    tempColorArray[x][y] = bmp.GetPixel(x, y);
+                    tempColorArray[x, y] = bmp.GetPixel(x, y);
                 }
             }
             
@@ -53,9 +53,9 @@ namespace LudumDare31Game
 
         
 
-        private SFML.Graphics.Image ColorToImage(System.Drawing.Color[][] colorArray)
+        private SFML.Graphics.Image ColorToImage(System.Drawing.Color[,] colorArray)
         {
-            SFML.Graphics.Image temp = null;
+            SFML.Graphics.Image temp;
 
             foreach(var i in images)
             {
@@ -63,7 +63,7 @@ namespace LudumDare31Game
                 {
                     for (int y = 0; y < GetHeight(i.Key); y++)
                     {
-                        temp.SetPixel(Convert.ToUInt32(x), Convert.ToUInt32(y), colorArray[x][y]);
+                        temp.SetPixel(Convert.ToUInt32(x), Convert.ToUInt32(y), colorArray[x, y]);
                     }
                 }
             }

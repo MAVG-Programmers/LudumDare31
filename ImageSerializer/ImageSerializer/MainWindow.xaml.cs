@@ -14,7 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Drawing;
+
+using SFML.Graphics;
 
 namespace ImageSerializer
 {
@@ -59,27 +60,34 @@ namespace ImageSerializer
         {
             foreach (string file in dialog.FileNames)
             {
-                try
+                
+                Image loadedImage = new Image(file);
+                string fileName = file.Substring(file.LastIndexOf('\\'));
+                fileName = fileName.Remove(0, 1);
+
+                LoadedImage imager;
+                images.Add(imager = new LoadedImage());
+                imager.assetName = fileName;
+                imager.image = ImageToColorArray(loadedImage);
+
+                textBox.Text += fileName + " ";
+                
+            }
+        }
+
+        private SFML.Graphics.Color[,] ImageToColorArray(Image image)
+        {
+            SFML.Graphics.Color[,] tempArray = new SFML.Graphics.Color[image.Size.X, image.Size.Y];
+
+            for (int x = 0; x < image.Size.X; x++)
+            {
+                for (int y = 0; y < image.Size.Y; y++)
                 {
-                    Image loadedImage = Image.FromFile(file);
-
-                    string fileName = file.Substring(file.LastIndexOf('\\'));
-                    fileName = fileName.Remove(0, 1);
-
-                    LoadedImage image;
-                    images.Add(image = new LoadedImage());
-                    image.assetName = fileName;
-                    image.image = loadedImage;
-
-                    textBox.Text += fileName + " ";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Cannot load the image: " + file.Substring(file.LastIndexOf('\\'))
-                    + ". You may not have permission to read the file, or " +
-                    "it may be corrupt.\n\nReported error: " + ex.Message);
+                    tempArray[x, y] = image.GetPixel(Convert.ToUInt32(x), Convert.ToUInt32(y));
                 }
             }
+
+            return tempArray;
         }
 
         private byte[] ListToByteArray(List<LoadedImage> obj)
