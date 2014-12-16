@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asset.cs" />
     <Compile Include="CollisionManager.cs" />
     <Compile Include="ContentManager.cs" />
     <Compile Include="DrawablePart.cs" />

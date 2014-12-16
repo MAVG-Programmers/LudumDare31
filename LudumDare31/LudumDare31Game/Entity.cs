@@ -10,6 +10,6 @@ namespace LudumDare31Game
     {
         void Load();
         void Update(Game g, int deltatime);
-        void Draw(Game g, int deltatime);
+        void Draw(Game g, int deltatime);   
     }
 }
